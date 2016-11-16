@@ -209,8 +209,8 @@ public class TuneUtils {
                 e.printStackTrace();
             }
             if (targetSdkVersion >= Build.VERSION_CODES.M) {
-                // targetSdkVersion >= Android M, we can use ContextCompat#checkSelfPermission
-                return ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED;
+                // targetSdkVersion >= Android M, we can use Context#checkSelfPermission
+                return context.checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED;
             } else {
                 // targetSdkVersion < Android M, we have to use PermissionChecker
                 return PermissionChecker.checkSelfPermission(context, permission) == PermissionChecker.PERMISSION_GRANTED;
